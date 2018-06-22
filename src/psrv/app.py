@@ -42,6 +42,7 @@ async def root(request):
 async def status(request):
     return json({
         'cpu': psutil.cpu_percent(),
+        'memory': psutil.virtual_memory().percent,
     })
 
 
