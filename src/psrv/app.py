@@ -1,4 +1,5 @@
 import logging
+import psutil
 from json import loads
 from time import time
 from os.path import dirname
@@ -35,6 +36,13 @@ async def serve_css(request):
 @app.route('/')
 async def root(request):
     return html(index_html)
+
+
+@app.route('/status')
+async def status(request):
+    return json({
+        'cpu': psutil.cpu_percent(),
+    })
 
 
 def main():

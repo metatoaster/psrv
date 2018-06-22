@@ -42,6 +42,7 @@ setup(
     zip_safe=False,
     install_requires=[
         'gaugesrv',
+        'psutil',
     ],
     package_json=package_json,
     extras_require={
