@@ -70,6 +70,19 @@ setup(
     python_requires='>=3.4',
     build_calmjs_artifacts=True,
     entry_points={
+        'calmjs.module': [
+            'psrv = psrv',
+        ],
+        'calmjs.scss': [
+            'psrv = psrv',
+        ],
+        'calmjs.artifacts': [
+            'webpack.js = calmjs.webpack.artifact:complete_webpack',
+            'styles.css = calmjs.sassy.artifact:complete_css',
+        ],
+        'console_scripts': [
+            'psrv-demo = psrv.app:main',
+        ],
     },
     test_suite="psrv.tests.make_suite",
 )
