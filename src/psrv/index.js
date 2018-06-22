@@ -7,7 +7,6 @@ var interval = 3000; // milliseconds
 
 function update() {
     $.get('/status', function(data) {
-        console.log(data);
         $.each(data, gaugesrv.toggle);
         setTimeout(update, interval);
     });
