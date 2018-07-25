@@ -19,18 +19,11 @@ with open(join(dirname(__file__), 'static', 'index.html')) as fd:
 
 webpack_js = get_distribution('psrv').get_metadata(
     'calmjs_artifacts/webpack.js')
-psrv_css = get_distribution('psrv').get_metadata(
-    'calmjs_artifacts/styles.css')
 
 
 @app.route('/psrv.js')
 async def serve_js(request):
     return text(webpack_js, headers={'Content-Type': 'application/javascript'})
-
-
-@app.route('/psrv.css')
-async def serve_css(request):
-    return text(psrv_css, headers={'Content-Type': 'text/css'})
 
 
 @app.route('/')

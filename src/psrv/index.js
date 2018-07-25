@@ -1,5 +1,7 @@
 'use strict';
 
+var style = require('psrv/webpack.css');
+
 var gaugesrv = require('gaugesrv/lib');
 var $ = require('jquery');
 var interval = 3000; // milliseconds

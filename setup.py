@@ -18,7 +18,9 @@ Topic :: Utilities
 """.strip().splitlines()
 
 package_json = {
-    'dependencies': {
+    'devDependencies': {
+        'css-loader': '~0.28.11',
+        'style-loader': '~0.21.0',
     },
 }
 
@@ -70,9 +72,15 @@ setup(
     include_package_data=True,
     python_requires='>=3.4',
     build_calmjs_artifacts=True,
+    calmjs_module_registry=[
+        'calmjs.module.webpackloader',
+    ],
     entry_points={
         'calmjs.module': [
             'psrv = psrv',
+        ],
+        'calmjs.module.webpackloader': [
+            'style-loader!css-loader = css[css]',
         ],
         'calmjs.scss': [
             'psrv = psrv',
